@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AppStudentManagement</string>
+    <string name="back_button_description">Quay lại</string>
 </resources>

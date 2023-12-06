@@ -5,52 +5,188 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ActivityAddStudent"
-    android:orientation="vertical">
-    <ImageView
-        android:id="@+id/upload_student_image"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/students_icon"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp" />
+    android:orientation="vertical"
+    android:gravity="center">
+    <TextView
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:text="Thêm học sinh"
+        android:textStyle="bold"></TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_arrow_back_24"
+            android:contentDescription="@string/back_button_description"
+            android:onClick="onBackButtonClick" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/upload_student_image"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:src="@drawable/students_icon"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+    </LinearLayout>
     <EditText
         android:id="@+id/et_MaHS"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="MãHS" />
     <EditText
         android:id="@+id/et_name"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Tên" />
 
     <EditText
         android:id="@+id/et_class"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Lớp" />
     <EditText
         android:id="@+id/et_Birth"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Ngày tháng năm sinh"></EditText>
     <EditText
         android:id="@+id/et_address"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Địa chỉ" />
 
     <EditText
         android:id="@+id/et_phone"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Số điện thoại" />
 
     <EditText
         android:id="@+id/et_detail"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Thông tin chi tiết"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp">
+        <EditText
+            android:layout_marginRight="10dp"
+            android:id="@+id/et_ScoreToan"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:hint="Toán"
+            android:gravity="center"
+            android:background="@drawable/inputscore"/>
+        <EditText
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:background="@drawable/inputscore"
+            android:id="@+id/et_ScoreVan"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:hint="Văn"/>
+        <EditText
+            android:gravity="center"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/inputscore"
+            android:id="@+id/et_ScoreAnh"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:hint="Anh"/>
+        <EditText
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:background="@drawable/inputscore"
+            android:id="@+id/et_ScoreVatLy"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:hint="Vật lý"/>
+        <EditText
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:background="@drawable/inputscore"
+            android:id="@+id/et_ScoreDiaLy"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:hint="Địa lý"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp">>
+        <EditText
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:background="@drawable/inputscore"
+            android:id="@+id/et_ScoreLichSu"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:hint="Lịch sử"/>
+        <EditText
+            android:gravity="center"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/inputscore"
+            android:id="@+id/et_ScoreGDCD"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:hint="GDCD"/>
+        <EditText
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:background="@drawable/inputscore"
+            android:id="@+id/et_ScoreHoaHoc"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:hint="Hóa học"/>
+        <EditText
+            android:gravity="center"
+            android:background="@drawable/inputscore"
+            android:id="@+id/et_ScoreSinhHoc"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:hint="Sinh học"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:layout_marginRight="10dp"
+            android:id="@+id/et_HanhKiem"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="hạnh kiểm:"
+            android:background="@drawable/inputpro"/>
+        <EditText
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:id="@+id/et_ScoreDTB"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:hint="DTB"
+            android:background="@drawable/inputpro"/>
+        <EditText
+            android:gravity="center"
+            android:id="@+id/et_ScoreHocLuc"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:hint="Học lực:"
+            android:background="@drawable/inputpro"/>
+    </LinearLayout>
     <Button
         android:layout_gravity="center"
         android:id="@+id/btn_AddStudent"

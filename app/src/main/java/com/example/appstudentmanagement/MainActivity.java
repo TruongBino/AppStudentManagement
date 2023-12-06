@@ -11,8 +11,7 @@ import android.widget.ImageButton;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
-    private ImageButton btnLogOut;
-    private Button btnAddStudent,btnViewListStudent;
+    private ImageButton btnLogOut,btnAddStudent,btnViewListStudent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +34,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ActivityAddStudent.class);
+                startActivity(intent);
+            }
+        });
+        btnViewListStudent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ListStudentActivity.class);
                 startActivity(intent);
             }
         });
