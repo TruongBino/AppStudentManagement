@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical">
+    <Button
+        android:id="@+id/btn_AddStudent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thêm thông tin học sinh"></Button>
+    <Button
+        android:id="@+id/btn_ViewListStudent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="xem danh sách học sinh"></Button>
     <ImageButton
         android:id="@+id/btn_LogOut"
         android:layout_width="match_parent"

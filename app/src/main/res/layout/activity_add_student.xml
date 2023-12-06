@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityAddStudent"
+    android:orientation="vertical">
+    <ImageView
+        android:id="@+id/upload_student_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/students_icon"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp" />
+    <EditText
+        android:id="@+id/et_MaHS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="MãHS" />
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tên" />
+
+    <EditText
+        android:id="@+id/et_class"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Lớp" />
+    <EditText
+        android:id="@+id/et_Birth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ngày tháng năm sinh"></EditText>
+    <EditText
+        android:id="@+id/et_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Địa chỉ" />
+
+    <EditText
+        android:id="@+id/et_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Số điện thoại" />
+
+    <EditText
+        android:id="@+id/et_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Thông tin chi tiết"/>
+    <Button
+        android:layout_gravity="center"
+        android:id="@+id/btn_AddStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lưu" />
+
+</LinearLayout>
