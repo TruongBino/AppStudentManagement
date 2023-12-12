@@ -15,7 +15,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Phần Mềm Quản Lý Sinh Viên"
+        android:text="Phần Mềm Quản Lý Học Sinh"
         android:textStyle="bold"
         android:textSize="28sp"
         android:gravity="center"
@@ -77,7 +77,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Danh sách sinh viên"
+                android:text="Danh sách học sinh"
                 android:textSize="15sp"
                 android:textStyle="bold"></TextView>
             <ImageButton
