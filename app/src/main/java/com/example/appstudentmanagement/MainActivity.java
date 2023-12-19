@@ -27,7 +27,9 @@ public class MainActivity extends AppCompatActivity {
                 // Sau khi đăng xuất, chuyển người dùng đến màn hình đăng nhập hoặc màn hình chính khác
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
-                finish(); // Đóng Activity hiện tại//
+                finish(); // Đóng Activity hiện tại
+
+                //
             }
         });
         btnAddStudent.setOnClickListener(new View.OnClickListener() {
