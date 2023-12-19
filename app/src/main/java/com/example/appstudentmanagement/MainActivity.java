@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 finish(); // Đóng Activity hiện tại
 
                 //
+                //
             }
         });
         btnAddStudent.setOnClickListener(new View.OnClickListener() {
