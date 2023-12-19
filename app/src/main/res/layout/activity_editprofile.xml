@@ -19,26 +19,41 @@
             android:layout_height="200dp"
             android:background="@drawable/man"
             android:layout_marginBottom="30dp"/>
-        <TextView
+        <EditText
             android:gravity="center"
-            android:id="@+id/tv_Name"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/input"
+            android:id="@+id/edt_Name"
             android:hint="Name"
-            android:layout_marginBottom="20dp"></TextView>
-        <TextView
-            android:gravity="center"
-            android:id="@+id/tv_Email"
-            android:hint="Email"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:background="@drawable/input"
-            android:layout_marginBottom="20dp"></TextView>
+            android:layout_marginBottom="20dp"
+            android:drawableRight="@drawable/baseline_person_update_24"
+            android:paddingEnd="15dp"></EditText>
+        <EditText
+            android:gravity="center"
+            android:id="@+id/edt_Email"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input"
+            android:hint="Email"
+            android:layout_marginBottom="20dp"
+            android:drawableRight="@drawable/baseline_email_24"
+            android:paddingEnd="15dp"></EditText>
+        <EditText
+            android:gravity="center"
+            android:id="@+id/edt_Password"
+            android:hint="Password"
+            android:layout_width="300dp"
+            android:inputType="textPassword"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input"
+            android:drawableRight="@drawable/baseline_password_24"
+            android:paddingEnd="15dp"></EditText>
         <Button
-            android:id="@+id/btn_EditProfile"
+            android:layout_marginTop="20dp"
+            android:id="@+id/btn_Update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sửa thông tin"></Button>
+            android:text="Lưu thông tin"></Button>
     </LinearLayout>
 </LinearLayout>

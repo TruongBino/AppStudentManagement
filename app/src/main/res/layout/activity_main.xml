@@ -28,81 +28,89 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-                <ImageButton
-                    android:id="@+id/btn_AddStudent"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@drawable/add"
-                    android:layout_marginRight="40dp"></ImageButton>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Thêm học sinh"
-                    android:textSize="15sp"
-                    android:textStyle="bold"></TextView>
+            android:orientation="vertical"
+            android:paddingRight="10dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
                 <ImageButton
                     android:id="@+id/btn_ViewListExam"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:background="@drawable/exam"></ImageButton>
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Danh sách bài tập"
                     android:textSize="15sp"
                     android:textStyle="bold"></TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
                 <ImageButton
-                    android:id="@+id/btn_ViewAddExam"
+                    android:id="@+id/btn_EditProfile"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:background="@drawable/examadd"></ImageButton>
-            <TextView
-                android:layout_width="match_parent"
+                    android:background="@drawable/resume"></ImageButton>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tài khoản"
+                    android:textSize="15sp"
+                    android:textStyle="bold"></TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thêm bài tập"
-                android:textSize="15sp"
-                android:textStyle="bold"></TextView>
+                android:orientation="vertical"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:gravity="center">
-            <ImageButton
-                android:id="@+id/btn_ViewListStudent"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/examination"></ImageButton>
-            <TextView
+            android:gravity="center"
+            android:paddingLeft="10dp">
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Danh sách học sinh"
-                android:textSize="15sp"
-                android:textStyle="bold"></TextView>
-            <ImageButton
-                android:id="@+id/btn_ViewEditProfile"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/resume"></ImageButton>
-            <TextView
+                android:orientation="vertical">
+                <ImageButton
+                    android:id="@+id/btn_ViewListStudent"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/examination"></ImageButton>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Danh sách học sinh"
+                    android:textSize="15sp"
+                    android:textStyle="bold"></TextView>
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tài khoản"
-                android:textSize="15sp"
-                android:textStyle="bold"></TextView>
-            <ImageButton
-                android:id="@+id/btn_LogOut"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/logout"></ImageButton>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Đăng xuất"
-                android:textSize="15sp"
-                android:textStyle="bold"></TextView>
+                android:orientation="vertical">
+                <ImageButton
+                    android:id="@+id/btn_LogOut"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/logout"></ImageButton>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Đăng xuất"
+                    android:textSize="15sp"
+                    android:textStyle="bold"></TextView>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
 </LinearLayout>
