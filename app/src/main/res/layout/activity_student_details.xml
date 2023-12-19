@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:text="Thông tin học sinh"
+        android:textStyle="bold"></TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_arrow_back_24"
+            android:contentDescription="@string/back_button_description"
+            android:onClick="onBackButtonClick" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/img_student_image"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:src="@drawable/students_icon"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_MaHS"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="MãHS" />
+    <TextView
+        android:id="@+id/tv_Name"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Tên" />
+
+    <TextView
+        android:id="@+id/tv_Class"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Lớp" />
+    <TextView
+        android:id="@+id/tv_Birth"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Ngày tháng năm sinh"></TextView>
+    <TextView
+        android:id="@+id/tv_Address"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Địa chỉ" />
+
+    <TextView
+        android:id="@+id/tv_Phone"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Số điện thoại" />
+
+    <TextView
+        android:id="@+id/tv_Detail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Thông tin chi tiết"/>
+
+</LinearLayout>

@@ -76,7 +76,6 @@ public class ActivityAddStudent extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        progressDialog = new ProgressDialog(this);
 
 
         storage = FirebaseStorage.getInstance();
@@ -161,11 +160,9 @@ public class ActivityAddStudent extends AppCompatActivity {
                         myRef.push().setValue(student)
                                 .addOnCompleteListener(task -> {
                                     if (task.isSuccessful()) {
-                                        progressDialog.show();
                                         // Nếu thành công, hiển thị thông báo
                                         Toast.makeText(ActivityAddStudent.this, "Dữ liệu đã được lưu thành công", Toast.LENGTH_SHORT).show();
                                     } else {
-                                        progressDialog.show();
                                         // Nếu không thành công, hiển thị thông báo lỗi
                                         Toast.makeText(ActivityAddStudent.this, "Lưu dữ liệu không thành công", Toast.LENGTH_SHORT).show();
                                     }
