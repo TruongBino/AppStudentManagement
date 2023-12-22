@@ -2,7 +2,9 @@ package com.example.appstudentmanagement;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -19,22 +21,13 @@ public class SplashActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-
                 nextActivity();
             }
-        },2000);
+        }, 2000);
     }
 
     private void nextActivity() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if(user == null){
-            //chưa login
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
-        } else{
-            //da login
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-        }
     }
 }

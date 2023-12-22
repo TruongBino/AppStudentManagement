@@ -9,7 +9,7 @@
     tools:context=".SignUpActivity">
 
     <TextView
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ứng dụng"
@@ -37,8 +37,20 @@
         android:src="@drawable/teacher_1995574"
         android:transitionName="splash_image" />
     <EditText
+        android:id="@+id/edt_DisPlayName"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:paddingLeft="20dp"
+        android:hint="Tên hiển thị"
+        android:layout_marginTop="10dp"
+        android:inputType="text"
+        android:background="@drawable/input"
+        android:drawableRight="@drawable/baseline_person_update_24"
+        android:paddingEnd="15dp" />
+    <EditText
         android:id="@+id/edt_Email"
-        android:layout_width="360dp"
+        android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         android:paddingLeft="20dp"
@@ -51,11 +63,11 @@
 
     <EditText
         android:id="@+id/edt_Password"
-        android:layout_width="360dp"
+        android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         android:paddingLeft="20dp"
-        android:hint="Password"
+        android:hint="Mật khẩu"
         android:layout_marginTop="10dp"
         android:inputType="textPassword"
         android:background="@drawable/input"
@@ -67,20 +79,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginTop="10dp">
-
-        <RadioButton
-            android:id="@+id/rbStudent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Học sinh" />
-
-        <RadioButton
-            android:id="@+id/rbTeacher"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Giáo viên" />
-    </RadioGroup>
+        android:layout_marginTop="10dp"/>
 
 
 
@@ -92,7 +91,7 @@
         android:layout_marginTop="15dp"
         android:background="@drawable/login_btn"
         app:backgroundTint="@null"
-        android:text="Đang ký" />
+        android:text="Đăng ký" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -104,7 +103,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Have account?"
+            android:text="Đã có tài khoản ? "
             android:textColor="@color/black" />
 
         <TextView
@@ -112,7 +111,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:text=" Log in"/>
+            android:text="Đăng nhập"/>
     </LinearLayout>
 
 </LinearLayout>

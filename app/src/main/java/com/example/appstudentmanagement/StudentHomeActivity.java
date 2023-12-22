@@ -1,33 +1,30 @@
 package com.example.appstudentmanagement;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity {
+public class StudentHomeActivity extends AppCompatActivity {
     private ImageButton btnLogOut,btnViewListStudent,btnProfile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_student_home);
+        FirebaseAuth.getInstance().signOut();
+
         initUI();
-        //checkUserRole();
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                Intent intent = new Intent(StudentHomeActivity.this,LoginActivity.class);
                 startActivity(intent);
                 // Chuyển về màn hình đăng nhập
             }
@@ -35,14 +32,14 @@ public class MainActivity extends AppCompatActivity {
         btnViewListStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ListStudentActivity.class);
+                Intent intent = new Intent(StudentHomeActivity.this, ListViewStudentActivity.class);
                 startActivity(intent);
             }
         });
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                Intent intent = new Intent(StudentHomeActivity.this, ProfileActivity.class);
                 startActivity(intent);
             }
         });

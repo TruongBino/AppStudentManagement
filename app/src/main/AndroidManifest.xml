@@ -16,6 +16,33 @@
         android:theme="@style/Theme.AppStudentManagement"
         tools:targetApi="31">
         <activity
+            android:name=".RegisterAccountTeacherActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListAccountStudentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListAccountTeacherActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TeacherLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StudentHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListViewStudentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminManagementActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditStudentActivity"
             android:exported="false" />
         <activity
