@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class StudentHomeActivity extends AppCompatActivity {
-    private ImageButton btnLogOut,btnViewListStudent,btnProfile,btnRanking;
+    private ImageButton btnLogOut,btnViewListStudent,btnProfile,btnRanking,btnExam;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,12 +49,19 @@ public class StudentHomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btnExam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StudentHomeActivity.this, ListExamActivity.class);
+                startActivity(intent);
+            }
+        });
     }
-
     private void initUI() {
         btnLogOut = findViewById(R.id.btn_LogOut);
         btnViewListStudent =findViewById(R.id.btn_ViewListStudent);
         btnProfile=findViewById(R.id.btn_EditProfile);
         btnRanking=findViewById(R.id.btn_Ranking);
+        btnExam=findViewById(R.id.btn_ViewListExam);
     }
 }

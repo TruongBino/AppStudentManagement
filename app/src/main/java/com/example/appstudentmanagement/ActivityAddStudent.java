@@ -101,54 +101,56 @@ public class ActivityAddStudent extends AppCompatActivity {
     }
 
     private void onClickPushData() {
-        if (imageUri != null) {
-            // Tải ảnh lên Firebase Storage
-            StorageReference fileReference = storageReference.child("students/" + System.currentTimeMillis() + "." + getFileExtension(imageUri));
-            fileReference.putFile(imageUri)
-                    .addOnSuccessListener(taskSnapshot -> {
-                        // Lấy URL của ảnh sau khi tải lên thành công
-                        Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
-                        while (!urlTask.isSuccessful()) ;
-                        Uri downloadUrl = urlTask.getResult();
-                        String photoUrl = downloadUrl.toString();
+        if (isValidData()) {
+            if (imageUri != null) {
+                // Tải ảnh lên Firebase Storage
+                StorageReference fileReference = storageReference.child("students/" + System.currentTimeMillis() + "." + getFileExtension(imageUri));
+                fileReference.putFile(imageUri)
+                        .addOnSuccessListener(taskSnapshot -> {
+                            // Lấy URL của ảnh sau khi tải lên thành công
+                            Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
+                            while (!urlTask.isSuccessful()) ;
+                            Uri downloadUrl = urlTask.getResult();
+                            String photoUrl = downloadUrl.toString();
 
-                        // Lấy thông tin sinh viên từ các EditText
-                        String codeValue = MaHS.getText().toString();
-                        String nameValue = edtName.getText().toString();
-                        String classValue = edtClass.getText().toString();
-                        String birthValue = edtBirth.getText().toString();
-                        String addressValue = edtAddress.getText().toString();
-                        String phoneValue = edtSDT.getText().toString();
-                        String detailValue = edtDetail.getText().toString();
-     //Khai báo FIle điểm
-                        String HanhKiemValue = edtscoreHanhKiem.getText().toString();
-                        String DTBValue = edtscoreDTB.getText().toString();
-                        String HocLucValue = edtscoreHocLuc.getText().toString();
+                            // Lấy thông tin sinh viên từ các EditText
+                            String codeValue = MaHS.getText().toString();
+                            String nameValue = edtName.getText().toString();
+                            String classValue = edtClass.getText().toString();
+                            String birthValue = edtBirth.getText().toString();
+                            String addressValue = edtAddress.getText().toString();
+                            String phoneValue = edtSDT.getText().toString();
+                            String detailValue = edtDetail.getText().toString();
+                            //Khai báo FIle điểm
+                            String HanhKiemValue = edtscoreHanhKiem.getText().toString();
+                            String DTBValue = edtscoreDTB.getText().toString();
+                            String HocLucValue = edtscoreHocLuc.getText().toString();
 
 
-                        // Tạo đối tượng Student
-                        Student student = new Student(photoUrl, codeValue, nameValue, classValue, birthValue, addressValue, phoneValue, detailValue, HanhKiemValue, DTBValue , HocLucValue);
+                            // Tạo đối tượng Student
+                            Student student = new Student(photoUrl, codeValue, nameValue, classValue, birthValue, addressValue, phoneValue, detailValue, HanhKiemValue, DTBValue, HocLucValue);
 
-                        // Đẩy dữ liệu lên Firebase Realtime Database
-                        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("Student");
-                        myRef.push().setValue(student)
-                                .addOnCompleteListener(task -> {
-                                    if (task.isSuccessful()) {
-                                        // Nếu thành công, hiển thị thông báo
-                                        Toast.makeText(ActivityAddStudent.this, "Dữ liệu đã được lưu thành công", Toast.LENGTH_SHORT).show();
-                                    } else {
-                                        // Nếu không thành công, hiển thị thông báo lỗi
-                                        Toast.makeText(ActivityAddStudent.this, "Lưu dữ liệu không thành công", Toast.LENGTH_SHORT).show();
-                                    }
-                                });
-                    })
-                    .addOnFailureListener(e -> {
-                        // Xử lý khi không thể tải ảnh lên
-                        Toast.makeText(ActivityAddStudent.this, "Lỗi: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                    });
-        } else {
-            // Xử lý khi người dùng chưa chọn ảnh
-            Toast.makeText(this, "Vui lòng chọn ảnh", Toast.LENGTH_SHORT).show();
+                            // Đẩy dữ liệu lên Firebase Realtime Database
+                            DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("Student");
+                            myRef.push().setValue(student)
+                                    .addOnCompleteListener(task -> {
+                                        if (task.isSuccessful()) {
+                                            // Nếu thành công, hiển thị thông báo
+                                            Toast.makeText(ActivityAddStudent.this, "Dữ liệu đã được lưu thành công", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            // Nếu không thành công, hiển thị thông báo lỗi
+                                            Toast.makeText(ActivityAddStudent.this, "Lưu dữ liệu không thành công", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                        })
+                        .addOnFailureListener(e -> {
+                            // Xử lý khi không thể tải ảnh lên
+                            Toast.makeText(ActivityAddStudent.this, "Lỗi: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        });
+            } else {
+                // Xử lý khi người dùng chưa chọn ảnh
+                Toast.makeText(this, "Vui lòng chọn ảnh", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -159,5 +161,48 @@ public class ActivityAddStudent extends AppCompatActivity {
     }
     public void onBackButtonClick(View view) {
         onBackPressed();
+    }
+    private boolean isValidData() {
+        String codeValue = MaHS.getText().toString();
+        String nameValue = edtName.getText().toString();
+        String classValue = edtClass.getText().toString();
+        String birthValue = edtBirth.getText().toString();
+        String DTBValue = edtscoreDTB.getText().toString();
+        String HanhKiemValue = edtscoreHanhKiem.getText().toString();
+        String HocLucValue = edtscoreHocLuc.getText().toString();
+
+
+        // Kiểm tra điều kiện cho từng trường
+        if (codeValue.isEmpty() || nameValue.isEmpty() || classValue.isEmpty() || birthValue.isEmpty() || DTBValue.isEmpty() || HanhKiemValue.isEmpty() || HocLucValue.isEmpty()) {
+            Toast.makeText(this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        // Kiểm tra điều kiện cho trường codeValue (mã học sinh chỉ chứa số)
+        if (!codeValue.matches("\\d+")) {
+            Toast.makeText(this, "Mã học sinh chỉ được nhập số", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        // Kiểm tra điều kiện cho trường nameValue (tên chỉ chứa chữ)
+        if (!nameValue.matches("[a-zA-Z\\s]+")) {
+            Toast.makeText(this, "Tên chỉ được nhập chữ", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (!HanhKiemValue.matches("[a-zA-Z\\s]+")) {
+            Toast.makeText(this, "Lỗi nhập hạnh kiểm", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (!HocLucValue.matches("[a-zA-Z\\s]+")) {
+            Toast.makeText(this, "Lỗi nhập học lực", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        double dtb = Double.parseDouble(DTBValue);
+        if (dtb < 1 || dtb > 10) {
+            Toast.makeText(this, "Điểm trung bình phải từ 1 đến 10", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
     }
 }
