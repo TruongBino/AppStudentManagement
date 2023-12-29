@@ -16,18 +16,32 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
-    private ImageButton btnLogOut,btnViewListStudent,btnProfile;
+    private ImageButton btnLogOut,btnViewListStudent,btnProfile,btnViewListExam,btnRanking;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initUI();
-        //checkUserRole();
+
+        btnRanking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ListRankingActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnViewListExam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,ListExamActivity.class);
+                startActivity(intent);
+            }
+        });
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                Intent intent = new Intent(MainActivity.this,LoginStudentActivity.class);
                 startActivity(intent);
                 // Chuyển về màn hình đăng nhập
             }
@@ -39,18 +53,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        btnProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     private void initUI() {
         btnLogOut = findViewById(R.id.btn_LogOut);
         btnViewListStudent =findViewById(R.id.btn_ViewListStudent);
         btnProfile=findViewById(R.id.btn_EditProfile);
+        btnViewListExam=findViewById(R.id.btn_ViewListExam);
+        btnRanking=findViewById(R.id.btn_Ranking);
     }
 }

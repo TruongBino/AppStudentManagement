@@ -7,11 +7,10 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
     <ImageView
-        android:layout_gravity="center"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:background="@drawable/school"
-        android:layout_marginBottom="10dp"></ImageView>
+        android:layout_gravity="center"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,6 +27,19 @@
         android:textSize="28sp"
         android:gravity="center"
         android:layout_marginBottom="10dp"></TextView>
+    <ImageButton
+        android:layout_gravity="center"
+        android:id="@+id/btn_Ranking"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/ranking"></ImageButton>
+    <TextView
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bảng Xếp hạng"
+        android:textSize="15sp"
+        android:textStyle="bold"></TextView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

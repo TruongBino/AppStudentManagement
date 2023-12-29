@@ -50,17 +50,18 @@ public class TeacherLoginActivity extends AppCompatActivity {
                                 String savedPassword = userSnapshot.child("password").getValue().toString();
                                 if (savedPassword.equals(password)) {
                                     // Đăng nhập thành công
+                                    Toast.makeText(TeacherLoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(TeacherLoginActivity.this, MainActivity.class);
                                     startActivity(intent);
                                     finish();
                                 } else {
                                     // Đăng nhập thất bại
-                                    Toast.makeText(TeacherLoginActivity.this, "Đăng nhập thất bại. Vui lòng kiểm tra lại thông tin đăng nhập!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(TeacherLoginActivity.this, "Đăng nhập Không thành công", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         } else {
                             // Đăng nhập thất bại
-                            Toast.makeText(TeacherLoginActivity.this, "Đăng nhập thất bại. Vui lòng kiểm tra lại thông tin đăng nhập!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(TeacherLoginActivity.this, "Đăng nhập Không thành công", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -83,7 +84,7 @@ public class TeacherLoginActivity extends AppCompatActivity {
         btnStudentLg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TeacherLoginActivity.this, LoginActivity.class);
+                Intent intent = new Intent(TeacherLoginActivity.this, LoginStudentActivity.class);
                 startActivity(intent);
             }
         });

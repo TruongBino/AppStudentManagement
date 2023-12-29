@@ -31,7 +31,7 @@
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quản lý"
+        android:text="Quản trị viên"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="28sp"
@@ -129,7 +129,7 @@
             android:background="@color/white"
             android:textColor="@color/black"
             app:backgroundTint="@null"
-            android:text="Quản lý"/>
+            android:text="Quản trị viên"/>
     </LinearLayout>
 
 

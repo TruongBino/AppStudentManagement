@@ -9,16 +9,30 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.auth.FirebaseAuth;
-
 public class AdminHomeActivity extends AppCompatActivity {
-    private ImageButton btnLogOut,btnViewListStudent,btnProfile,btnAdmin;
+    private ImageButton btnLogOut,btnViewListStudent,btnProfile,btnAdmin,btnViewListExam,btnRanking;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_home);
         initUI();
-        //checkUserRole();
+        btnRanking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminHomeActivity.this, ListRankingActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        btnViewListExam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminHomeActivity.this, ListExamActivity.class);
+                startActivity(intent);
+            }
+        });
+
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,7 +46,7 @@ public class AdminHomeActivity extends AppCompatActivity {
             }
 
             private void goToLoginScreen() {
-                Intent intent = new Intent(AdminHomeActivity.this,LoginActivity.class);
+                Intent intent = new Intent(AdminHomeActivity.this, LoginStudentActivity.class);
                 startActivity(intent);
             }
         });
@@ -46,8 +60,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminHomeActivity.this, ProfileActivity.class);
-                startActivity(intent);
+
             }
         });
         btnAdmin.setOnClickListener(new View.OnClickListener() {
@@ -64,5 +77,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         btnViewListStudent =findViewById(R.id.btn_ViewListStudent);
         btnProfile=findViewById(R.id.btn_EditProfile);
         btnAdmin=findViewById(R.id.btn_AdminPage);
+        btnViewListExam=findViewById(R.id.btn_ViewListExam);
+        btnRanking=findViewById(R.id.btn_Ranking);
     }
 }

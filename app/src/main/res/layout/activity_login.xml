@@ -9,7 +9,6 @@
     tools:context=".LoginActivity">
 
     <TextView
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ứng dụng"
@@ -83,7 +82,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <CheckBox
@@ -94,6 +92,7 @@
             android:layout_marginLeft="30dp"
             android:text="Lưu tài khoản" />
         <TextView
+            android:id="@+id/btn_ForgotPassword"
             android:layout_marginLeft="50dp"
             android:textStyle="bold"
             android:textSize="18sp"
@@ -123,7 +122,6 @@
         android:textStyle="bold"
         android:transitionName="splash_text"></TextView>
     <LinearLayout
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -156,7 +154,7 @@
             android:layout_marginTop="10dp"
             android:background="@color/black"
             app:backgroundTint="@null"
-            android:text="Quản lý"/>
+            android:text="Quản trị viên"/>
     </LinearLayout>
 
     <LinearLayout

@@ -19,16 +19,7 @@
             android:layout_height="200dp"
             android:background="@drawable/man"
             android:layout_marginBottom="30dp"/>
-        <EditText
-            android:gravity="center"
-            android:id="@+id/edt_Name"
-            android:hint="Name"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/input"
-            android:layout_marginBottom="20dp"
-            android:drawableRight="@drawable/baseline_person_update_24"
-            android:paddingEnd="15dp"></EditText>
+
         <EditText
             android:gravity="center"
             android:id="@+id/edt_Email"

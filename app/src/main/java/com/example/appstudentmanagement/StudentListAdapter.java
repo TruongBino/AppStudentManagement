@@ -2,6 +2,7 @@ package com.example.appstudentmanagement;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -77,13 +80,20 @@ public class StudentListAdapter extends ArrayAdapter<Student> {
     }
 
     private void deleteStudent(Student student) {
-        studentList.remove(student);
-        notifyDataSetChanged();
-
         DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("Student");
-        myRef.child(student.getCode()).removeValue();
+        myRef.child(student.getCode()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    // Xóa thành công trên Firebase, sau đó mới xóa khỏi danh sách local và cập nhật giao diện
+                    studentList.remove(student);
+                    notifyDataSetChanged();
+                } else {
+                    Log.e("StudentListAdapter", "Lỗi không thể xóa học sinh từ Firebase: " + task.getException());
+                }
+            }
+        });
     }
-
     private void showStudentDetail(Student student) {
         notifyDataSetChanged();
         Intent intent = new Intent(mContext, StudentDetailsActivity.class);

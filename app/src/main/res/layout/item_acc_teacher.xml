@@ -9,14 +9,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tên Đăng nhập: "
-        android:textSize="20sp"></TextView>
+        android:textSize="20sp"
+        android:layout_marginRight="20dp"></TextView>
     <TextView
         android:id="@+id/tv_Account_Password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mật khẩu: "
         android:textSize="20sp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="10dp"
         android:layout_weight="1"></TextView>
     <Button
         android:id="@+id/addStudentAccountButton"

@@ -18,56 +18,38 @@
             android:id="@+id/titleTeacherTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Danh sách tài khoản giáo viên"
+            android:text="Danh sách bài tập"
             android:textSize="23sp"
             android:padding="8dp"
             android:textStyle="bold"
             android:gravity="center"/>
     </LinearLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:gravity="center">
-    <Button
-        android:id="@+id/addTeacherAccountButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Thêm"
-        android:layout_below="@id/teacherAccountListView"
-        android:layout_margin="16dp" />
-    <Button
-        android:id="@+id/deleteTeacherAccountButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Xóa"
-        android:layout_below="@id/teacherAccountListView"
-        android:layout_margin="16dp" />
-    <Button
-        android:id="@+id/editTeacherAccountButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sửa"
-        android:layout_below="@id/teacherAccountListView"
-        android:layout_margin="16dp" />
-</LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_marginLeft="20dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <Button
+            android:id="@+id/btn_addExam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tên đăng nhập"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginRight="70dp"></TextView>
-        <TextView
+            android:text="Thêm"
+            android:layout_below="@id/teacherAccountListView"
+            android:layout_margin="16dp" />
+        <Button
+            android:id="@+id/btn_deleteExam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mật khẩu"
-            android:textSize="20sp"
-            android:textStyle="bold"></TextView>
+            android:text="Xóa"
+            android:layout_below="@id/teacherAccountListView"
+            android:layout_margin="16dp" />
+        <Button
+            android:id="@+id/btn_editExam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sửa"
+            android:layout_below="@id/teacherAccountListView"
+            android:layout_margin="16dp" />
     </LinearLayout>
     <ListView
         android:id="@+id/teacherAccountListView"

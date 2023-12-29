@@ -9,24 +9,21 @@
         android:layout_gravity="center"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:background="@drawable/school"
-        android:layout_marginBottom="10dp"></ImageView>
+        android:background="@drawable/school"></ImageView>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ứng dụng quản lý học sinh"
         android:textStyle="bold"
         android:textSize="28sp"
-        android:gravity="center"
-        android:layout_marginBottom="10dp"></TextView>
+        android:gravity="center"></TextView>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Admin"
         android:textStyle="bold"
         android:textSize="28sp"
-        android:gravity="center"
-        android:layout_marginBottom="10dp"></TextView>
+        android:gravity="center"></TextView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,6 +34,24 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingRight="10dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageButton
+                    android:layout_gravity="center"
+                    android:id="@+id/btn_Ranking"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/ranking"></ImageButton>
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bảng xếp hạng"
+                    android:textSize="15sp"
+                    android:textStyle="bold"></TextView>
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -91,6 +106,24 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <ImageButton
+                    android:layout_gravity="center"
+                    android:id="@+id/btn_AdminPage"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/admin_icon"></ImageButton>
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Quản trị viên"
+                    android:textSize="15sp"
+                    android:textStyle="bold"></TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageButton
                     android:id="@+id/btn_ViewListStudent"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
@@ -120,11 +153,4 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-    <ImageButton
-        android:layout_gravity="center"
-        android:id="@+id/btn_AdminPage"
-        android:layout_marginTop="20dp"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/admin_icon"></ImageButton>
 </LinearLayout>

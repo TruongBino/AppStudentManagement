@@ -21,7 +21,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginStudentActivity extends AppCompatActivity {
 
     private TextView textViewSignUp;
 
@@ -43,14 +43,14 @@ public class LoginActivity extends AppCompatActivity {
         btnAdminLg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this,AdminLoginActivity.class);
+                Intent intent = new Intent(LoginStudentActivity.this,AdminLoginActivity.class);
                 startActivity(intent);
             }
         });
         btnTeacherLg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this,TeacherLoginActivity.class);
+                Intent intent = new Intent(LoginStudentActivity.this,TeacherLoginActivity.class);
                 startActivity(intent);
             }
         });
@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         textViewSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+                Intent intent = new Intent(LoginStudentActivity.this, SignUpStudentActivity.class);
                 startActivity(intent);
             }
         });
@@ -93,12 +93,12 @@ public class LoginActivity extends AppCompatActivity {
                             FirebaseAuth auth = FirebaseAuth.getInstance();
                             FirebaseUser currentUser = auth.getCurrentUser();
                             if (currentUser != null) {
-                                Intent intent = new Intent(LoginActivity.this, StudentHomeActivity.class);
+                                Intent intent = new Intent(LoginStudentActivity.this, StudentHomeActivity.class);
                                 startActivity(intent);
                                 finish();
                             }
                         } else {
-                            Toast.makeText(LoginActivity.this, "Đăng nhập không thành công.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginStudentActivity.this, "Đăng nhập không thành công.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

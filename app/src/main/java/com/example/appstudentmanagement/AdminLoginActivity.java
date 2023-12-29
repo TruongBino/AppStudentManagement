@@ -18,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class AdminLoginActivity extends AppCompatActivity {
 
-    private EditText usernameEditText, passwordEditText;
+    private EditText etUsername, etPassword;
     private Button loginButton,btnStudentLg,btnTeacherLg;
 
     private DatabaseReference adminRef;
@@ -32,14 +32,14 @@ public class AdminLoginActivity extends AppCompatActivity {
         btnStudentLg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(AdminLoginActivity.this,LoginActivity.class);
+                Intent intent= new Intent(AdminLoginActivity.this, LoginStudentActivity.class);
                 startActivity(intent);
             }
         });
         btnTeacherLg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(AdminLoginActivity.this,TeacherLoginActivity.class);
+                Intent intent= new Intent(AdminLoginActivity.this, TeacherLoginActivity.class);
                 startActivity(intent);
             }
         });
@@ -53,8 +53,8 @@ public class AdminLoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = usernameEditText.getText().toString().trim();
-                String password = passwordEditText.getText().toString().trim();
+                String username = etUsername.getText().toString().trim();
+                String password = etPassword.getText().toString().trim();
 
                 adminRef.child(username).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -77,11 +77,10 @@ public class AdminLoginActivity extends AppCompatActivity {
                             Toast.makeText(AdminLoginActivity.this, "Tên đăng nhập không tồn tại", Toast.LENGTH_SHORT).show();
                         }
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
                         // Xử lý lỗi
-                        Toast.makeText(AdminLoginActivity.this, "Đã xảy ra lỗi", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AdminLoginActivity.this, "Đăng nhập không thành công", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -89,8 +88,8 @@ public class AdminLoginActivity extends AppCompatActivity {
     }
 
     private void initUI() {
-        usernameEditText = findViewById(R.id.edt_UserName);
-        passwordEditText = findViewById(R.id.edt_Password);
+        etUsername = findViewById(R.id.edt_UserName);
+        etPassword = findViewById(R.id.edt_Password);
         loginButton = findViewById(R.id.btn_LogIn);
         btnTeacherLg=findViewById(R.id.btn_TeacherLg);
         btnStudentLg=findViewById(R.id.btn_StudentLg);

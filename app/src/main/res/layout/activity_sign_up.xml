@@ -36,18 +36,7 @@
         android:layout_marginTop="10dp"
         android:src="@drawable/teacher_1995574"
         android:transitionName="splash_image" />
-    <EditText
-        android:id="@+id/edt_DisPlayName"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        android:paddingLeft="20dp"
-        android:hint="Tên hiển thị"
-        android:layout_marginTop="10dp"
-        android:inputType="text"
-        android:background="@drawable/input"
-        android:drawableRight="@drawable/baseline_person_update_24"
-        android:paddingEnd="15dp" />
+
     <EditText
         android:id="@+id/edt_Email"
         android:layout_width="300dp"

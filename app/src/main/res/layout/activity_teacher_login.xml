@@ -131,6 +131,6 @@
             android:layout_marginTop="10dp"
             android:background="@color/black"
             app:backgroundTint="@null"
-            android:text="Quản lý"/>
+            android:text="Quản trị viên"/>
     </LinearLayout>
 </LinearLayout>

@@ -77,88 +77,16 @@
         android:hint="Thông tin chi tiết"/>
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="10dp">
-        <EditText
-            android:layout_marginRight="10dp"
-            android:id="@+id/et_ScoreToan"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:hint="Toán"
-            android:gravity="center"
-            android:background="@drawable/inputscore"/>
-        <EditText
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:background="@drawable/inputscore"
-            android:id="@+id/et_ScoreVan"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:hint="Văn"/>
-        <EditText
-            android:gravity="center"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/inputscore"
-            android:id="@+id/et_ScoreAnh"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:hint="Anh"/>
-        <EditText
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:background="@drawable/inputscore"
-            android:id="@+id/et_ScoreVatLy"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:hint="Vật lý"/>
-        <EditText
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:background="@drawable/inputscore"
-            android:id="@+id/et_ScoreDiaLy"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:hint="Địa lý"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="10dp">>
-        <EditText
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:background="@drawable/inputscore"
-            android:id="@+id/et_ScoreLichSu"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:hint="Lịch sử"/>
-        <EditText
-            android:gravity="center"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/inputscore"
-            android:id="@+id/et_ScoreGDCD"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:hint="GDCD"/>
-        <EditText
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:background="@drawable/inputscore"
-            android:id="@+id/et_ScoreHoaHoc"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:hint="Hóa học"/>
-        <EditText
-            android:gravity="center"
-            android:background="@drawable/inputscore"
-            android:id="@+id/et_ScoreSinhHoc"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:hint="Sinh học"/>
-    </LinearLayout>
+        android:text="Đăng tải file điểm chi tiết"></TextView>
+    <ImageButton
+        android:id="@+id/img_FileDetailScore"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/baseline_file_present_24"></ImageButton>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

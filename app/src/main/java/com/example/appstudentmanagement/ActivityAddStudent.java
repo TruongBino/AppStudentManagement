@@ -1,34 +1,25 @@
 package com.example.appstudentmanagement;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
-
-import java.util.Calendar;
 
 public class ActivityAddStudent extends AppCompatActivity {
     private ProgressDialog progressDialog;
@@ -37,8 +28,8 @@ public class ActivityAddStudent extends AppCompatActivity {
     private FirebaseStorage storage;
     private StorageReference storageReference;
     private EditText MaHS,edtName,edtBirth,edtClass,edtSDT,edtAddress,edtDetail;
-    private EditText edtscoreToan, edtscoreVan,edtscoreAnh,edtscoreVatLy,edtscoreLichSu
-            ,edtscoreDialy,edtscoreGDCD,edtscoreHoa, edtscoreSinh,edtscoreHanhKiem,edtscoreDTB,edtscoreHocLuc;
+    private EditText edtscoreHanhKiem,edtscoreDTB,edtscoreHocLuc;
+    private ImageButton fileDetailScore;
     private Button btnAddStudent;
     private static final int PICK_IMAGE_REQUEST = 1;
 
@@ -55,15 +46,7 @@ public class ActivityAddStudent extends AppCompatActivity {
         edtSDT = findViewById(R.id.et_phone);
         edtDetail = findViewById(R.id.et_detail);
 
-        edtscoreToan = findViewById(R.id.et_ScoreToan);
-        edtscoreVan = findViewById(R.id.et_ScoreVan);
-        edtscoreAnh = findViewById(R.id.et_ScoreAnh);
-        edtscoreVatLy = findViewById(R.id.et_ScoreVatLy);
-        edtscoreLichSu = findViewById(R.id.et_ScoreLichSu);
-        edtscoreDialy = findViewById(R.id.et_ScoreDiaLy);
-        edtscoreGDCD = findViewById(R.id.et_ScoreGDCD);
-        edtscoreHoa = findViewById(R.id.et_ScoreHoaHoc);
-        edtscoreSinh = findViewById(R.id.et_ScoreSinhHoc);
+        fileDetailScore=findViewById(R.id.img_FileDetailScore);
         edtscoreHanhKiem = findViewById(R.id.et_HanhKiem);
         edtscoreDTB = findViewById(R.id.et_ScoreDTB);
         edtscoreHocLuc = findViewById(R.id.et_ScoreHocLuc);
@@ -137,23 +120,14 @@ public class ActivityAddStudent extends AppCompatActivity {
                         String addressValue = edtAddress.getText().toString();
                         String phoneValue = edtSDT.getText().toString();
                         String detailValue = edtDetail.getText().toString();
-                        String toanValue = edtscoreToan.getText().toString();
-                        String VanValue = edtscoreVan.getText().toString();
-                        String AnhValue = edtscoreAnh.getText().toString();
-                        String VatLyValue = edtscoreVatLy.getText().toString();
-                        String LichSuValue = edtscoreLichSu.getText().toString();
-                        String DialyValue = edtscoreDialy.getText().toString();
-                        String GDCDValue = edtscoreGDCD.getText().toString();
-                        String HoaValue = edtscoreHoa.getText().toString();
-                        String SinhValue = edtscoreSinh.getText().toString();
+     //Khai báo FIle điểm
                         String HanhKiemValue = edtscoreHanhKiem.getText().toString();
                         String DTBValue = edtscoreDTB.getText().toString();
                         String HocLucValue = edtscoreHocLuc.getText().toString();
 
 
                         // Tạo đối tượng Student
-                        Student student = new Student(photoUrl, codeValue, nameValue, classValue, birthValue, addressValue, phoneValue, detailValue,
-                                toanValue, VanValue, AnhValue,VatLyValue,LichSuValue, DialyValue, GDCDValue , HoaValue , SinhValue , HanhKiemValue, DTBValue , HocLucValue);
+                        Student student = new Student(photoUrl, codeValue, nameValue, classValue, birthValue, addressValue, phoneValue, detailValue, HanhKiemValue, DTBValue , HocLucValue);
 
                         // Đẩy dữ liệu lên Firebase Realtime Database
                         DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("Student");
