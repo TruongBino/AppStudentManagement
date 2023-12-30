@@ -16,8 +16,11 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.Tasks;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -129,24 +132,28 @@ public class ActivityAddStudent extends AppCompatActivity {
 
                             // Tạo đối tượng Student
                             Student student = new Student(photoUrl, codeValue, nameValue, classValue, birthValue, addressValue, phoneValue, detailValue, HanhKiemValue, DTBValue, HocLucValue);
-
-                            // Đẩy dữ liệu lên Firebase Realtime Database
-                            DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("Student");
-                            myRef.push().setValue(student)
-                                    .addOnCompleteListener(task -> {
-                                        if (task.isSuccessful()) {
-                                            // Nếu thành công, hiển thị thông báo
-                                            Toast.makeText(ActivityAddStudent.this, "Dữ liệu đã được lưu thành công", Toast.LENGTH_SHORT).show();
-                                        } else {
-                                            // Nếu không thành công, hiển thị thông báo lỗi
-                                            Toast.makeText(ActivityAddStudent.this, "Lưu dữ liệu không thành công", Toast.LENGTH_SHORT).show();
-                                        }
-                                    });
+                            if (isStudentCodeExists(student.getCode())) {
+                                Toast.makeText(this, "Mã học sinh đã tồn tại", Toast.LENGTH_SHORT).show();
+                            } else {
+                                // Đẩy dữ liệu lên Firebase Realtime Database
+                                DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("Student");
+                                myRef.push().setValue(student)
+                                        .addOnCompleteListener(task -> {
+                                            if (task.isSuccessful()) {
+                                                // Nếu thành công, hiển thị thông báo
+                                                Toast.makeText(ActivityAddStudent.this, "Dữ liệu đã được lưu thành công", Toast.LENGTH_SHORT).show();
+                                            } else {
+                                                // Nếu không thành công, hiển thị thông báo lỗi
+                                                Toast.makeText(ActivityAddStudent.this, "Lưu dữ liệu không thành công", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+                            }
                         })
                         .addOnFailureListener(e -> {
                             // Xử lý khi không thể tải ảnh lên
                             Toast.makeText(ActivityAddStudent.this, "Lỗi: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                         });
+
             } else {
                 // Xử lý khi người dùng chưa chọn ảnh
                 Toast.makeText(this, "Vui lòng chọn ảnh", Toast.LENGTH_SHORT).show();
@@ -173,6 +180,10 @@ public class ActivityAddStudent extends AppCompatActivity {
 
 
         // Kiểm tra điều kiện cho từng trường
+        if (isStudentCodeExists(codeValue)) {
+            Toast.makeText(this, "Mã học sinh đã tồn tại", Toast.LENGTH_SHORT).show();
+            return false;
+        }
         if (codeValue.isEmpty() || nameValue.isEmpty() || classValue.isEmpty() || birthValue.isEmpty() || DTBValue.isEmpty() || HanhKiemValue.isEmpty() || HocLucValue.isEmpty()) {
             Toast.makeText(this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
             return false;
@@ -204,5 +215,16 @@ public class ActivityAddStudent extends AppCompatActivity {
         }
 
         return true;
+    }
+    private boolean isStudentCodeExists(String codeValue) {
+        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("Student");
+        Query query = myRef.orderByChild("code").equalTo(codeValue);
+        try {
+            DataSnapshot dataSnapshot = Tasks.await(query.get());
+            return dataSnapshot.exists();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

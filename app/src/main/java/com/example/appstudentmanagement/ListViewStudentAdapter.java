@@ -69,6 +69,9 @@ public class ListViewStudentAdapter extends ArrayAdapter<Student> {
             intent.putExtra("studentAddress", student.getAddress());
             intent.putExtra("studentSDT", student.getPhone());
             intent.putExtra("studentDetail", student.getDetail());
+            intent.putExtra("studentConduct", student.getScoreHanhKiem());
+            intent.putExtra("studentGPA", student.getScoreDTB());
+            intent.putExtra("studentAcademicAbility", student.getScoreHocLuc());
             intent.putExtra("studentImageResId", R.drawable.man);
 
             mContext.startActivity(intent);

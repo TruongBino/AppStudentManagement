@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -10,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="25sp"
-        android:text="Thông tin học sinh"
+        android:text="Cập nhật điểm"
         android:textStyle="bold"></TextView>
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,47 +33,14 @@
                 android:layout_gravity="center_horizontal" />
         </LinearLayout>
     </LinearLayout>
-    <TextView
-        android:id="@+id/tv_MaHS"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="MãHS" />
-    <TextView
-        android:id="@+id/tv_Name"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Tên" />
-
-    <TextView
-        android:id="@+id/tv_Class"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Lớp" />
-    <TextView
-        android:id="@+id/tv_Birth"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Ngày tháng năm sinh"></TextView>
-    <TextView
-        android:id="@+id/tv_Address"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Địa chỉ" />
-
-    <TextView
-        android:id="@+id/tv_Phone"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Số điện thoại" />
-
-    <TextView
-        android:id="@+id/tv_Detail"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Thông tin chi tiết"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tv_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Mã HS: "></TextView>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -94,10 +59,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="hạnh kiểm:"/>
-        <TextView
+        <EditText
             android:text="HK:"
             android:layout_marginRight="10dp"
-            android:id="@+id/tv_Conduct"
+            android:id="@+id/edt_Conduct"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -106,10 +71,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="DTB:"/>
-        <TextView
+        <EditText
             android:layout_marginRight="10dp"
             android:gravity="center"
-            android:id="@+id/tv_ScoreGPA"
+            android:id="@+id/edt_ScoreGPA"
             android:layout_width="50dp"
             android:text="DTB:"
             android:layout_height="wrap_content"
@@ -118,13 +83,18 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:text="học lực:"/>
-        <TextView
+        <EditText
             android:gravity="center"
-            android:id="@+id/tv_ScoreAcademicAbility"
+            android:id="@+id/edt_ScoreAcademicAbility"
             android:layout_width="70dp"
             android:text="HL:"
             android:layout_height="wrap_content"
             android:background="@drawable/inputpro"/>
     </LinearLayout>
-
+    <Button
+        android:layout_gravity="center"
+        android:id="@+id/btn_UpdatePoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Point"></Button>
 </LinearLayout>

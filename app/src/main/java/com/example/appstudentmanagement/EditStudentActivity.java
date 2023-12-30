@@ -22,7 +22,7 @@ public class EditStudentActivity extends AppCompatActivity {
     private EditText edtMaHS, edtName, edtBirth, edtClass, edtSDT, edtAddress, edtDetail;
     private ImageView imgAvatar;
     private ImageButton backButton;
-    private boolean editMode;
+
     private Button btnUpdLoadStudent;
 
     @Override
@@ -58,7 +58,6 @@ public class EditStudentActivity extends AppCompatActivity {
             String studentAddress = intent.getStringExtra("studentAddress");
             String studentDetail = intent.getStringExtra("studentDetail");
             int studentImageResId = intent.getIntExtra("studentImageResId", R.drawable.man);
-            editMode = intent.getBooleanExtra("editMode", false);
 
             // Hiển thị thông tin của học sinh
             imgAvatar.setImageResource(studentImageResId);

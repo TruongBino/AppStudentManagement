@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class StudentDetailsActivity extends AppCompatActivity {
-    private TextView tvMaHS, tvName, tvBirth, tvClass, tvSDT, tvAddress, tvDetail;
+    private TextView tvMaHS, tvName, tvBirth, tvClass, tvSDT, tvAddress, tvDetail,tvConduct,tvAcademicAbility,tvGPA;
     private ImageView imgAvatar;
     private ImageButton backButton;
 
@@ -26,7 +26,9 @@ public class StudentDetailsActivity extends AppCompatActivity {
         tvSDT = findViewById(R.id.tv_Phone);
         tvAddress = findViewById(R.id.tv_Address);
         tvDetail = findViewById(R.id.tv_Detail);
-
+        tvConduct = findViewById(R.id.tv_Conduct);
+        tvAcademicAbility = findViewById(R.id.tv_ScoreAcademicAbility);
+        tvGPA = findViewById(R.id.tv_ScoreGPA);
 
         backButton=findViewById(R.id.btn_back);
         backButton.setOnClickListener(v -> finish());
@@ -41,17 +43,24 @@ public class StudentDetailsActivity extends AppCompatActivity {
                 String studentSDT = intent.getStringExtra("studentSDT");
                 String studentAddress = intent.getStringExtra("studentAddress");
                 String studentDetail = intent.getStringExtra("studentDetail");
+                String studentConDuct = getIntent().getStringExtra("studentConduct");
+                String studentGPA = getIntent().getStringExtra("studentGPA");
+                String studentAcademicAbility = getIntent().getStringExtra("studentAcademicAbility");
                 int studentImageResId = intent.getIntExtra("studentImageResId", R.drawable.man);
 
                 // Hiển thị thông tin của học sinh
                 imgAvatar.setImageResource(studentImageResId);
-                tvMaHS.setText("MaHS: " + studentMaHS);
-                tvName.setText("Name: " + studentName);
-                tvClass.setText("Class: " + studentClass);
-                tvBirth.setText("Birth: " + studentBirth);
-                tvSDT.setText("Phone: " + studentSDT);
-                tvAddress.setText("Address: " + studentAddress);
-                tvDetail.setText("Detail: " + studentDetail);
+                tvMaHS.setText("Mã học sinh : " + studentMaHS);
+                tvName.setText("Họ và tên : " + studentName);
+                tvClass.setText("Lớp : " + studentClass);
+                tvBirth.setText("Ngày sinh: " + studentBirth);
+                tvSDT.setText("Số điện thoại: " + studentSDT);
+                tvAddress.setText("Địa chỉ: " + studentAddress);
+                tvDetail.setText("Thông tin chi tiết: " + studentDetail);
+                tvConduct.setText(studentConDuct);
+                tvGPA.setText(studentGPA);
+                tvAcademicAbility.setText(studentAcademicAbility);
         }
+
     }
 }

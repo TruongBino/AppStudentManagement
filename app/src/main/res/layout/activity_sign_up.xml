@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundgreen"
-    android:orientation="vertical"
-    tools:context=".SignUpActivity">
+    android:orientation="vertical">
 
     <TextView
         android:layout_marginTop="10dp"

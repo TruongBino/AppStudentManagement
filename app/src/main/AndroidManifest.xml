@@ -16,6 +16,9 @@
         android:theme="@style/Theme.AppStudentManagement"
         tools:targetApi="31">
         <activity
+            android:name=".UpdatePointActivity"
+            android:exported="false" />
+        <activity
             android:name=".ListRankingActivity"
             android:exported="false" />
         <activity

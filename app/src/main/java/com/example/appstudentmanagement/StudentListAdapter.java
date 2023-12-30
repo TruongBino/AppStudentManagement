@@ -50,6 +50,7 @@ public class StudentListAdapter extends ArrayAdapter<Student> {
         View deleteButton = listItem.findViewById(R.id.btn_DeleteStudent);
         View showDetailButton = listItem.findViewById(R.id.btn_ShowDetailStudent);
         View editButton = listItem.findViewById(R.id.btn_EditStudent);
+        View updatePoint = listItem.findViewById(R.id.btn_UpdatePoint);
 
         MaHSTextView.setText(currentStudent.getCode());
         nameTextView.setText(currentStudent.getName());
@@ -68,7 +69,12 @@ public class StudentListAdapter extends ArrayAdapter<Student> {
                 editStudentDetail(currentStudent);
             }
         });
-
+        updatePoint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updatePoint(currentStudent);
+            }
+        });
         showDetailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,6 +100,7 @@ public class StudentListAdapter extends ArrayAdapter<Student> {
             }
         });
     }
+
     private void showStudentDetail(Student student) {
         notifyDataSetChanged();
         Intent intent = new Intent(mContext, StudentDetailsActivity.class);
@@ -104,10 +111,15 @@ public class StudentListAdapter extends ArrayAdapter<Student> {
         intent.putExtra("studentAddress", student.getAddress());
         intent.putExtra("studentSDT", student.getPhone());
         intent.putExtra("studentDetail", student.getDetail());
+        intent.putExtra("studentConduct", student.getScoreHanhKiem());
+        intent.putExtra("studentGPA", student.getScoreDTB());
+        intent.putExtra("studentAcademicAbility", student.getScoreHocLuc());
         intent.putExtra("studentImageResId", R.drawable.man);
+
 
         mContext.startActivity(intent);
     }
+
     private void editStudentDetail(Student student) {
         Intent intent = new Intent(mContext, EditStudentActivity.class);
         intent.putExtra("studentMaHS", student.getCode());
@@ -118,9 +130,17 @@ public class StudentListAdapter extends ArrayAdapter<Student> {
         intent.putExtra("studentSDT", student.getPhone());
         intent.putExtra("studentDetail", student.getDetail());
         intent.putExtra("studentImageResId", R.drawable.man);
-        // Để xác định rằng đây là chế độ chỉnh sửa, bạn có thể sử dụng một flag hoặc extra để truyền thông tin này
-        intent.putExtra("editMode", true);
 
+        mContext.startActivity(intent);
+        notifyDataSetChanged();
+    }
+
+    private void updatePoint(Student student) {
+        Intent intent = new Intent(mContext, UpdatePointActivity.class);
+        intent.putExtra("studentMaHS", student.getCode());
+        intent.putExtra("studentConduct", student.getScoreHanhKiem());
+        intent.putExtra("studentGPA", student.getScoreDTB());
+        intent.putExtra("studentAcademicAbility", student.getScoreHocLuc());
         mContext.startActivity(intent);
         notifyDataSetChanged();
     }

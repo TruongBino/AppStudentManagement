@@ -103,7 +103,8 @@
         android:gravity="center">
         <Button
             android:id="@+id/btn_StudentLg"
-            android:layout_width="130dp"
+            android:textSize="11sp"
+            android:layout_width="100dp"
             android:layout_height="45dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
@@ -112,7 +113,8 @@
             android:text="Học sinh"/>
         <Button
             android:id="@+id/btn_TeacherLg"
-            android:layout_width="130dp"
+            android:textSize="11sp"
+            android:layout_width="100dp"
             android:layout_height="45dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
@@ -122,7 +124,8 @@
         <Button
 
             android:id="@+id/btn_AdminLg"
-            android:layout_width="130dp"
+            android:layout_width="100dp"
+            android:textSize="11sp"
             android:layout_height="45dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
