@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:text="hạnh kiểm:"/>
         <EditText
-            android:text="HK:"
+            android:text="0"
             android:layout_marginRight="10dp"
             android:id="@+id/edt_Conduct"
             android:layout_width="70dp"
@@ -76,7 +76,7 @@
             android:gravity="center"
             android:id="@+id/edt_ScoreGPA"
             android:layout_width="50dp"
-            android:text="DTB:"
+            android:text="0"
             android:layout_height="wrap_content"
             android:background="@drawable/inputpro"/>
         <TextView
@@ -87,7 +87,7 @@
             android:gravity="center"
             android:id="@+id/edt_ScoreAcademicAbility"
             android:layout_width="70dp"
-            android:text="HL:"
+            android:text="0"
             android:layout_height="wrap_content"
             android:background="@drawable/inputpro"/>
     </LinearLayout>
