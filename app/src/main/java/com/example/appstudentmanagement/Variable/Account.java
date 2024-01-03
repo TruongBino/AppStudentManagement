@@ -1,4 +1,4 @@
-package com.example.appstudentmanagement;
+package com.example.appstudentmanagement.Variable;
 
 public class Account{
     private String displayName;

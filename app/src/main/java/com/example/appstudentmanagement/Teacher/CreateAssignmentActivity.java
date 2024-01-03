@@ -1,4 +1,4 @@
-package com.example.appstudentmanagement;
+package com.example.appstudentmanagement.Teacher;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.appstudentmanagement.R;
+import com.example.appstudentmanagement.Variable.Assignment;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;

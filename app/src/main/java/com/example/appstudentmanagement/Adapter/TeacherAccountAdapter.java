@@ -1,4 +1,4 @@
-package com.example.appstudentmanagement;
+package com.example.appstudentmanagement.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.example.appstudentmanagement.R;
+import com.example.appstudentmanagement.Variable.TeacherAccount;
 
 import java.util.List;
 

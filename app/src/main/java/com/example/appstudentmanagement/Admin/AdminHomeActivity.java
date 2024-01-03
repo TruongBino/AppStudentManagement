@@ -1,4 +1,4 @@
-package com.example.appstudentmanagement;
+package com.example.appstudentmanagement.Admin;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,12 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.appstudentmanagement.ListExamActivity;
+import com.example.appstudentmanagement.ListRankingActivity;
+import com.example.appstudentmanagement.Teacher.ListStudentActivity;
+import com.example.appstudentmanagement.Student.LoginStudentActivity;
+import com.example.appstudentmanagement.R;
 
 public class AdminHomeActivity extends AppCompatActivity {
     private ImageButton btnLogOut,btnViewListStudent,btnProfile,btnAdmin,btnViewListExam,btnRanking;

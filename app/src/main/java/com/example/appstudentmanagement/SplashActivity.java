@@ -2,14 +2,11 @@ package com.example.appstudentmanagement;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.example.appstudentmanagement.Student.LoginStudentActivity;
 
 public class SplashActivity extends AppCompatActivity {
 

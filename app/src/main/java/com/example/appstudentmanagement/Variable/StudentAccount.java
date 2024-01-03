@@ -1,4 +1,4 @@
-package com.example.appstudentmanagement;
+package com.example.appstudentmanagement.Variable;
 
 public class StudentAccount {
     private String email;

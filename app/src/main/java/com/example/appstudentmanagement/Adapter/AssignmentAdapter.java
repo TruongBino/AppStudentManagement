@@ -1,4 +1,4 @@
-package com.example.appstudentmanagement;
+package com.example.appstudentmanagement.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.appstudentmanagement.Assignment;
+import com.example.appstudentmanagement.Variable.Assignment;
 import com.example.appstudentmanagement.R;
 
 import java.io.File;

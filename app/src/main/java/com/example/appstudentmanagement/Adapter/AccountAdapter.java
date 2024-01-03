@@ -1,4 +1,4 @@
-package com.example.appstudentmanagement;
+package com.example.appstudentmanagement.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.appstudentmanagement.Account;
+import com.example.appstudentmanagement.Variable.Account;
 import com.example.appstudentmanagement.R;
 
 import java.util.List;

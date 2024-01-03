@@ -1,4 +1,4 @@
-package com.example.appstudentmanagement;
+package com.example.appstudentmanagement.Admin;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.appstudentmanagement.Student.LoginStudentActivity;
+import com.example.appstudentmanagement.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class AdminManagementActivity extends AppCompatActivity {

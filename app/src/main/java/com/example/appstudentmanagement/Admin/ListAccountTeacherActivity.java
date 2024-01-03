@@ -1,4 +1,4 @@
-package com.example.appstudentmanagement;
+package com.example.appstudentmanagement.Admin;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,9 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.appstudentmanagement.R;
+import com.example.appstudentmanagement.RegisterAccountTeacherActivity;
+import com.example.appstudentmanagement.Adapter.TeacherAccountAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -18,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.example.appstudentmanagement.TeacherAccount;
+import com.example.appstudentmanagement.Variable.TeacherAccount;
 
 
 public class ListAccountTeacherActivity extends AppCompatActivity {
@@ -63,7 +66,7 @@ public class ListAccountTeacherActivity extends AppCompatActivity {
         btnAddAccTeacher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(ListAccountTeacherActivity.this,RegisterAccountTeacherActivity.class);
+                Intent intent= new Intent(ListAccountTeacherActivity.this, RegisterAccountTeacherActivity.class);
                 startActivity(intent);
             }
         });

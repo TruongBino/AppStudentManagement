@@ -1,5 +1,6 @@
-package com.example.appstudentmanagement;
+package com.example.appstudentmanagement.Firebase;
 
+import com.example.appstudentmanagement.Variable.Student;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

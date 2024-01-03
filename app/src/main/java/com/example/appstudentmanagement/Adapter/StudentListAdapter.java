@@ -1,4 +1,4 @@
-package com.example.appstudentmanagement;
+package com.example.appstudentmanagement.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +13,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.appstudentmanagement.Teacher.EditStudentActivity;
+import com.example.appstudentmanagement.R;
+import com.example.appstudentmanagement.Variable.Student;
+import com.example.appstudentmanagement.StudentDetailsActivity;
+import com.example.appstudentmanagement.Teacher.UpdatePointActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;

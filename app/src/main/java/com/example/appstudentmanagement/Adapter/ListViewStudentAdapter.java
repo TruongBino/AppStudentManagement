@@ -1,4 +1,4 @@
-package com.example.appstudentmanagement;
+package com.example.appstudentmanagement.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,8 +12,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.example.appstudentmanagement.R;
+import com.example.appstudentmanagement.Variable.Student;
+import com.example.appstudentmanagement.StudentDetailsActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

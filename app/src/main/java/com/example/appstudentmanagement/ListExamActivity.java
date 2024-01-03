@@ -10,6 +10,9 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.appstudentmanagement.Adapter.AssignmentAdapter;
+import com.example.appstudentmanagement.Teacher.CreateAssignmentActivity;
+import com.example.appstudentmanagement.Variable.Assignment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

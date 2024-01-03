@@ -1,20 +1,22 @@
-package com.example.appstudentmanagement;
+package com.example.appstudentmanagement.Student;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.appstudentmanagement.Admin.AdminLoginActivity;
+import com.example.appstudentmanagement.R;
+import com.example.appstudentmanagement.SignUpStudentActivity;
+import com.example.appstudentmanagement.Student.StudentHomeActivity;
+import com.example.appstudentmanagement.Teacher.TeacherLoginActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -43,14 +45,14 @@ public class LoginStudentActivity extends AppCompatActivity {
         btnAdminLg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginStudentActivity.this,AdminLoginActivity.class);
+                Intent intent = new Intent(LoginStudentActivity.this, AdminLoginActivity.class);
                 startActivity(intent);
             }
         });
         btnTeacherLg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginStudentActivity.this,TeacherLoginActivity.class);
+                Intent intent = new Intent(LoginStudentActivity.this, TeacherLoginActivity.class);
                 startActivity(intent);
             }
         });
