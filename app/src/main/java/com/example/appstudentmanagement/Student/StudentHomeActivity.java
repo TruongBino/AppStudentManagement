@@ -7,11 +7,7 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.appstudentmanagement.EditProfileStudentActivity;
-import com.example.appstudentmanagement.ListExamActivity;
 import com.example.appstudentmanagement.ListRankingActivity;
-
-import com.example.appstudentmanagement.Student.LoginStudentActivity;
 
 import com.example.appstudentmanagement.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -59,7 +55,7 @@ public class StudentHomeActivity extends AppCompatActivity {
         btnExam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(StudentHomeActivity.this, ListExamActivity.class);
+                Intent intent = new Intent(StudentHomeActivity.this, StudentListExam.class);
                 startActivity(intent);
             }
         });

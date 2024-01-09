@@ -26,7 +26,11 @@ public class AssignmentAdapter extends BaseAdapter {
         this.context = context;
         this.assignmentList = assignmentList;
     }
-
+    public void setData(List<Assignment> assignments) {
+        assignmentList.clear();
+        assignmentList.addAll(assignments);
+        notifyDataSetChanged();
+    }
     @Override
     public int getCount() {
         return assignmentList.size();

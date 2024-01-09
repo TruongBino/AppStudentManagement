@@ -3,8 +3,14 @@ package com.example.appstudentmanagement.Teacher;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Spinner;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,10 +23,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class ListStudentActivity extends AppCompatActivity {
     private ListView listView;
+    private List<Student> originalStudentList;
+    private List<Student> filteredStudentList;
     private StudentListAdapter adapter;
     private List<Student> studentList;
     private ImageButton btnAddStudent;
@@ -35,9 +45,53 @@ public class ListStudentActivity extends AppCompatActivity {
         adapter = new StudentListAdapter(this, studentList);
         listView.setAdapter(adapter);
         btnAddStudent = findViewById(R.id.btn_AddStudentLV);
+        studentList = new ArrayList<>();
+        originalStudentList = new ArrayList<>();
+        filteredStudentList = new ArrayList<>();
+        adapter = new StudentListAdapter(this, filteredStudentList);
+        listView.setAdapter(adapter);
+
+        EditText edtSearch = findViewById(R.id.edt_search);
+        Button btnSearch = findViewById(R.id.btn_search);
+
+        Spinner spinnerSortOptions = findViewById(R.id.spinner_sortOptions);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.sort_options_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerSortOptions.setAdapter(adapter);
+
+        spinnerSortOptions.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedOption = (String) parent.getItemAtPosition(position);
+                switch (selectedOption) {
+                    case "Tên":
+                        sortByName();
+                        break;
+                    case "MãHS":
+                        sortByStudentID();
+                        break;
+                    case "Lớp":
+                        sortByClass();
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Không cần xử lý gì khi không có tùy chọn nào được chọn
+            }
+        });
+
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String query = edtSearch.getText().toString().trim().toLowerCase();
+                filterStudents(query);
+            }
+        });
 
 
-        // Nút BackHome
         ImageButton backButton = findViewById(R.id.btn_backHome);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,10 +113,13 @@ public class ListStudentActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 studentList.clear();
+                originalStudentList.clear();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Student student = postSnapshot.getValue(Student.class);
                     studentList.add(student);
+                    originalStudentList.add(student);
                 }
+                filterStudents("");
                 adapter.notifyDataSetChanged();
             }
 
@@ -72,10 +129,56 @@ public class ListStudentActivity extends AppCompatActivity {
             }
         });
     }
+    private void searchStudents(String query) {
+        filteredStudentList.clear();
 
-    public void onBackButtonClick(View view) {
-        onBackPressed();
+        for (Student student : originalStudentList) {
+            if (student.getName().toLowerCase().contains(query)) {
+                filteredStudentList.add(student);
+            }
+        }
+
+        adapter.notifyDataSetChanged();
     }
+    private void filterStudents(String query) {
+        filteredStudentList.clear();
 
+        for (Student student : originalStudentList) {
+            if (student.getName().toLowerCase().contains(query) || student.getCode().toLowerCase().contains(query)) {
+                filteredStudentList.add(student);
+            }
+        }
+
+        adapter.notifyDataSetChanged();
+    }
+    private void sortByName() {
+        Collections.sort(filteredStudentList, new Comparator<Student>() {
+            @Override
+            public int compare(Student s1, Student s2) {
+                return s1.getName().compareToIgnoreCase(s2.getName());
+            }
+        });
+        adapter.notifyDataSetChanged();
+    }
+    private void sortByStudentID() {
+        Collections.sort(filteredStudentList, new Comparator<Student>() {
+            @Override
+            public int compare(Student s1, Student s2) {
+                return s1.getCode().compareTo(s2.getCode());
+            }
+        });
+        adapter.notifyDataSetChanged();
+    }
+    private void sortByClass() {
+        Collections.sort(filteredStudentList, new Comparator<Student>() {
+            @Override
+            public int compare(Student s1, Student s2) {
+                String className1 = s1.getClass().getName();
+                String className2 = s2.getClass().getName();
+                return className1.compareTo(className2);
+            }
+        });
+        adapter.notifyDataSetChanged();
+    }
 
 }

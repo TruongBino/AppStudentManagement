@@ -51,14 +51,14 @@ public class EditStudentActivity extends AppCompatActivity {
         // Lấy thông tin của học sinh từ intent
         Intent intent = getIntent();
         if (intent != null) {
-            String studentMaHS = intent.getStringExtra("studentMaHS");
-            String studentName = intent.getStringExtra("studentName");
+            String studentMaHS = intent.getStringExtra("code");
+            String studentName = intent.getStringExtra("name");
             String studentClass = intent.getStringExtra("studentClass");
-            String studentBirth = intent.getStringExtra("studentBirth");
-            String studentSDT = intent.getStringExtra("studentSDT");
-            String studentAddress = intent.getStringExtra("studentAddress");
-            String studentDetail = intent.getStringExtra("studentDetail");
-            int studentImageResId = intent.getIntExtra("studentImageResId", R.drawable.man);
+            String studentBirth = intent.getStringExtra("dateOfBirth");
+            String studentSDT = intent.getStringExtra("phone");
+            String studentAddress = intent.getStringExtra("address");
+            String studentDetail = intent.getStringExtra("detail");
+            int studentImageResId = intent.getIntExtra("photoUrl", R.drawable.man);
 
             // Hiển thị thông tin của học sinh
             imgAvatar.setImageResource(studentImageResId);
@@ -105,7 +105,7 @@ public class EditStudentActivity extends AppCompatActivity {
 
         databaseReference.child("code").setValue(studentId);
         databaseReference.child("name").setValue(updatedName);
-        databaseReference.child("class").setValue(updatedClass);
+        databaseReference.child("studentClass").setValue(updatedClass);
         databaseReference.child("dateOfBirth").setValue(updatedBirth);
         databaseReference.child("address").setValue(updatedAddress);
         databaseReference.child("phone").setValue(updatedSDT);

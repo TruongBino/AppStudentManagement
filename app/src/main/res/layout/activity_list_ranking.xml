@@ -27,9 +27,30 @@
             android:layout_weight="1" />
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/edt_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:hint="Tìm kiếm"
+            android:drawableRight="@drawable/baseline_search_24"
+            android:imeOptions="actionDone"
+            android:layout_weight="1"
+            android:singleLine="true" />
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tìm" />
+    </LinearLayout>
 
     <ListView
-        android:id="@+id/list_view_ranking"
+        android:id="@+id/lv_ranking"
         android:focusable="true"
         android:clickable="true"
         android:layout_width="match_parent"

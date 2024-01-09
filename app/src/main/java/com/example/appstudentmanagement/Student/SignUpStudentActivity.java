@@ -1,4 +1,4 @@
-package com.example.appstudentmanagement;
+package com.example.appstudentmanagement.Student;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,11 +12,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.appstudentmanagement.Student.LoginStudentActivity;
+import com.example.appstudentmanagement.R;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignUpStudentActivity extends AppCompatActivity {
 
@@ -62,6 +71,8 @@ public class SignUpStudentActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressDialog.dismiss();
                         if (task.isSuccessful()) {
+                            // Lưu thông tin người dùng vào Realtime Database
+                            saveUserDataToRealtimeDatabase(strEmail);
                             Intent intent = new Intent(SignUpStudentActivity.this, LoginStudentActivity.class);
                             startActivity(intent);
                         } else {
@@ -70,9 +81,17 @@ public class SignUpStudentActivity extends AppCompatActivity {
                         }
                     }
                 });
-
     }
 
+    private void saveUserDataToRealtimeDatabase(String email) {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        String validPath = email.replace(".", "_"); // Thay thế "." bằng "_"
+        DatabaseReference userRef = database.getReference("users").child(validPath);
+        // Lưu các thông tin khác của tài khoản người dùng vào Realtime Database
+        userRef.child("email").setValue(email);
+        userRef.child("role").setValue("student"); // Ví dụ: lưu trường "role" để chỉ định vai trò của người dùng
+        // Thêm các xử lý thành công hoặc thất bại nếu cần
+    }
     private void initUi() {
         edtEmail = findViewById(R.id.edt_Email);
         edtPassword = findViewById(R.id.edt_Password);

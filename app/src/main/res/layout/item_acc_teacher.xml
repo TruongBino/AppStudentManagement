@@ -20,7 +20,7 @@
         android:layout_marginLeft="10dp"
         android:layout_weight="1"></TextView>
     <Button
-        android:id="@+id/addStudentAccountButton"
+        android:id="@+id/btn_Delete"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@drawable/baseline_delete_24"

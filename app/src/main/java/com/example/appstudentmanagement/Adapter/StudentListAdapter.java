@@ -28,7 +28,7 @@ import java.util.List;
 
 public class StudentListAdapter extends ArrayAdapter<Student> {
     private final Context mContext;
-    private final List<Student> studentList;
+    private final List<Student>studentList;
 
     public StudentListAdapter(Context context, List<Student> list) {
         super(context, 0, list);
@@ -109,17 +109,17 @@ public class StudentListAdapter extends ArrayAdapter<Student> {
     private void showStudentDetail(Student student) {
         notifyDataSetChanged();
         Intent intent = new Intent(mContext, StudentDetailsActivity.class);
-        intent.putExtra("studentMaHS", student.getCode());
-        intent.putExtra("studentName", student.getName());
+        intent.putExtra("code", student.getCode());
+        intent.putExtra("name", student.getName());
         intent.putExtra("studentClass", student.getStudentClass());
-        intent.putExtra("studentBirth", student.getDateOfBirth());
-        intent.putExtra("studentAddress", student.getAddress());
-        intent.putExtra("studentSDT", student.getPhone());
-        intent.putExtra("studentDetail", student.getDetail());
-        intent.putExtra("studentConduct", student.getScoreHanhKiem());
-        intent.putExtra("studentGPA", student.getScoreDTB());
-        intent.putExtra("studentAcademicAbility", student.getScoreHocLuc());
-        intent.putExtra("studentImageResId", R.drawable.man);
+        intent.putExtra("dateOfBirth", student.getDateOfBirth());
+        intent.putExtra("address", student.getAddress());
+        intent.putExtra("phone", student.getPhone());
+        intent.putExtra("detail", student.getDetail());
+        intent.putExtra("scoreHanhKiem", student.getScoreHanhKiem());
+        intent.putExtra("scoreDTB", student.getScoreDTB());
+        intent.putExtra("scoreHocLuc", student.getScoreHocLuc());
+        intent.putExtra("photoUrl", R.drawable.man);
 
 
         mContext.startActivity(intent);
@@ -127,14 +127,14 @@ public class StudentListAdapter extends ArrayAdapter<Student> {
 
     private void editStudentDetail(Student student) {
         Intent intent = new Intent(mContext, EditStudentActivity.class);
-        intent.putExtra("studentMaHS", student.getCode());
-        intent.putExtra("studentName", student.getName());
+        intent.putExtra("code", student.getCode());
+        intent.putExtra("name", student.getName());
         intent.putExtra("studentClass", student.getStudentClass());
-        intent.putExtra("studentBirth", student.getDateOfBirth());
-        intent.putExtra("studentAddress", student.getAddress());
-        intent.putExtra("studentSDT", student.getPhone());
-        intent.putExtra("studentDetail", student.getDetail());
-        intent.putExtra("studentImageResId", R.drawable.man);
+        intent.putExtra("dateOfBirth", student.getDateOfBirth());
+        intent.putExtra("address", student.getAddress());
+        intent.putExtra("phone", student.getPhone());
+        intent.putExtra("detail", student.getDetail());
+        intent.putExtra("photoUrl", R.drawable.man);
 
         mContext.startActivity(intent);
         notifyDataSetChanged();
@@ -142,10 +142,10 @@ public class StudentListAdapter extends ArrayAdapter<Student> {
 
     private void updatePoint(Student student) {
         Intent intent = new Intent(mContext, UpdatePointActivity.class);
-        intent.putExtra("studentMaHS", student.getCode());
-        intent.putExtra("studentConduct", student.getScoreHanhKiem());
-        intent.putExtra("studentGPA", student.getScoreDTB());
-        intent.putExtra("studentAcademicAbility", student.getScoreHocLuc());
+        intent.putExtra("code", student.getCode());
+        intent.putExtra("scoreHanhKiem", student.getScoreHanhKiem());
+        intent.putExtra("scoreDTB", student.getScoreDTB());
+        intent.putExtra("scoreHocLuc", student.getScoreHocLuc());
         mContext.startActivity(intent);
         notifyDataSetChanged();
     }

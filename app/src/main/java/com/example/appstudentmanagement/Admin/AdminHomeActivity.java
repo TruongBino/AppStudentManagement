@@ -9,7 +9,7 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.appstudentmanagement.ListExamActivity;
+import com.example.appstudentmanagement.Teacher.ListExamActivity;
 import com.example.appstudentmanagement.ListRankingActivity;
 import com.example.appstudentmanagement.Teacher.ListStudentActivity;
 import com.example.appstudentmanagement.Student.LoginStudentActivity;

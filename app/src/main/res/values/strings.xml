@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">AppStudentManagement</string>
     <string name="back_button_description">Quay lại</string>
+    <string-array name="sort_options_array">
+        <item>Tên</item>
+        <item>MãHS</item>
+        <item>Lớp</item>
+    </string-array>
 </resources>

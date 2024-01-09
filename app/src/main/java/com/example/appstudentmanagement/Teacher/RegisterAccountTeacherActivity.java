@@ -1,14 +1,15 @@
-package com.example.appstudentmanagement;
+package com.example.appstudentmanagement.Teacher;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.appstudentmanagement.Teacher.TeacherLoginActivity;
+import com.example.appstudentmanagement.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -28,6 +29,13 @@ public class RegisterAccountTeacherActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        ImageButton backButton = findViewById(R.id.btn_back);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         etUsername = findViewById(R.id.et_teacher_username);
         etPassword = findViewById(R.id.et_teacher_password);

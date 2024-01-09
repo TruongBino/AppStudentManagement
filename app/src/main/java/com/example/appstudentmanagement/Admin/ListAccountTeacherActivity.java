@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.appstudentmanagement.R;
-import com.example.appstudentmanagement.RegisterAccountTeacherActivity;
+import com.example.appstudentmanagement.Teacher.RegisterAccountTeacherActivity;
 import com.example.appstudentmanagement.Adapter.TeacherAccountAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

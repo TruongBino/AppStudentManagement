@@ -19,32 +19,33 @@
             android:layout_height="200dp"
             android:background="@drawable/man"
             android:layout_marginBottom="30dp"/>
-
+        <TextView
+            android:layout_marginBottom="20dp"
+            android:text="Cập nhật Email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
         <EditText
             android:gravity="center"
             android:id="@+id/edt_Email"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:background="@drawable/input"
-            android:hint="Email"
+            android:hint="Email@gmail.com"
             android:layout_marginBottom="20dp"
             android:drawableRight="@drawable/baseline_email_24"
             android:paddingEnd="15dp"></EditText>
-        <EditText
-            android:gravity="center"
-            android:id="@+id/edt_Password"
-            android:hint="Password"
-            android:layout_width="300dp"
-            android:inputType="textPassword"
-            android:layout_height="wrap_content"
-            android:background="@drawable/input"
-            android:drawableRight="@drawable/baseline_password_24"
-            android:paddingEnd="15dp"></EditText>
+
         <Button
             android:layout_marginTop="20dp"
-            android:id="@+id/btn_Update"
+            android:id="@+id/btn_UpdateEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lưu thông tin"></Button>
+            android:text="Cập nhật Email"></Button>
+        <Button
+            android:layout_marginTop="20dp"
+            android:id="@+id/btn_UpdatePassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cập nhật mật khẩu"></Button>
     </LinearLayout>
 </LinearLayout>

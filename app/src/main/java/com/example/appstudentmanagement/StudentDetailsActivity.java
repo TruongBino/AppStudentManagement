@@ -36,17 +36,17 @@ public class StudentDetailsActivity extends AppCompatActivity {
         // Lấy thông tin của học sinh từ intent
         Intent intent = getIntent();
         if (intent != null) {
-                String studentMaHS = intent.getStringExtra("studentMaHS");
-                String studentName = intent.getStringExtra("studentName");
+                String studentMaHS = intent.getStringExtra("code");
+                String studentName = intent.getStringExtra("name");
                 String studentClass = intent.getStringExtra("studentClass");
-                String studentBirth = intent.getStringExtra("studentBirth");
-                String studentSDT = intent.getStringExtra("studentSDT");
-                String studentAddress = intent.getStringExtra("studentAddress");
-                String studentDetail = intent.getStringExtra("studentDetail");
-                String studentConDuct = getIntent().getStringExtra("studentConduct");
-                String studentGPA = getIntent().getStringExtra("studentGPA");
-                String studentAcademicAbility = getIntent().getStringExtra("studentAcademicAbility");
-                int studentImageResId = intent.getIntExtra("studentImageResId", R.drawable.man);
+                String studentBirth = intent.getStringExtra("dateOfBirth");
+                String studentSDT = intent.getStringExtra("phone");
+                String studentAddress = intent.getStringExtra("address");
+                String studentDetail = intent.getStringExtra("detail");
+                String studentConDuct = getIntent().getStringExtra("scoreHanhKiem");
+                String studentGPA = getIntent().getStringExtra("scoreDTB");
+                String studentAcademicAbility = getIntent().getStringExtra("scoreHocLuc");
+                int studentImageResId = intent.getIntExtra("photoUrl", R.drawable.man);
 
                 // Hiển thị thông tin của học sinh
                 imgAvatar.setImageResource(studentImageResId);

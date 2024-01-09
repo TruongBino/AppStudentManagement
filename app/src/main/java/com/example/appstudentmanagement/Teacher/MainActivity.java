@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.example.appstudentmanagement.ListExamActivity;
 import com.example.appstudentmanagement.ListRankingActivity;
 import com.example.appstudentmanagement.Student.LoginStudentActivity;
 import com.example.appstudentmanagement.R;

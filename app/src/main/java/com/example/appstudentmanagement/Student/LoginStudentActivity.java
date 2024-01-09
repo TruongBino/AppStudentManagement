@@ -14,8 +14,6 @@ import android.widget.Toast;
 
 import com.example.appstudentmanagement.Admin.AdminLoginActivity;
 import com.example.appstudentmanagement.R;
-import com.example.appstudentmanagement.SignUpStudentActivity;
-import com.example.appstudentmanagement.Student.StudentHomeActivity;
 import com.example.appstudentmanagement.Teacher.TeacherLoginActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;

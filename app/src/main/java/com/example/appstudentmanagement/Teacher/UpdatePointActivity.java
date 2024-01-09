@@ -30,6 +30,13 @@ public class UpdatePointActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.item_update_point);
+        ImageButton backButton = findViewById(R.id.btn_back);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Student");
 
@@ -41,11 +48,11 @@ public class UpdatePointActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        if (intent != null && intent.hasExtra("studentMaHS")) {
-            final String studentCode = intent.getStringExtra("studentMaHS");
-            String studentConduct = intent.getStringExtra("studentConduct");
-            String studentGPA = intent.getStringExtra("studentGPA");
-            String studentAcademicAbility = intent.getStringExtra("studentAcademicAbility");
+        if (intent != null && intent.hasExtra("code")) {
+            final String studentCode = intent.getStringExtra("code");
+            String studentConduct = intent.getStringExtra("scoreHanhKiem");
+            String studentGPA = intent.getStringExtra("scoreDTB");
+            String studentAcademicAbility = intent.getStringExtra("scoreHocLuc");
             tvCode.setText(studentCode);
             edtConduct.setText(studentConduct);
             edtGPA.setText(studentGPA);

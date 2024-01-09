@@ -24,6 +24,9 @@ public class ListRankingAdapter  extends ArrayAdapter<Student> {
         mContext = context;
         studentList = list;
     }
+    public int getRanking(int position) {
+        return position + 1;
+    }
 
     @NonNull
     @Override

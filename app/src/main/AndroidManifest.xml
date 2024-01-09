@@ -16,22 +16,25 @@
         android:theme="@style/Theme.AppStudentManagement"
         tools:targetApi="31">
         <activity
+            android:name=".Student.UpdatePasswordStudentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Student.StudentListExam"
+            android:exported="false" />
+        <activity
             android:name=".Teacher.UpdatePointActivity"
             android:exported="false" />
         <activity
             android:name=".ListRankingActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivityUserPass"
-            android:exported="false" />
-        <activity
-            android:name=".ListExamActivity"
+            android:name=".Teacher.ListExamActivity"
             android:exported="false" />
         <activity
             android:name=".Teacher.CreateAssignmentActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterAccountTeacherActivity"
+            android:name=".Teacher.RegisterAccountTeacherActivity"
             android:exported="false" />
         <activity
             android:name=".Admin.ListAccountStudentActivity"
@@ -64,7 +67,7 @@
             android:name=".StudentDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".EditProfileStudentActivity"
+            android:name=".Student.EditProfileStudentActivity"
             android:exported="false" />
         <activity
             android:name=".Teacher.ListStudentActivity"
@@ -73,7 +76,7 @@
             android:name=".Teacher.ActivityAddStudent"
             android:exported="false" />
         <activity
-            android:name=".SignUpStudentActivity"
+            android:name=".Student.SignUpStudentActivity"
             android:exported="false" />
         <activity
             android:name=".Student.LoginStudentActivity"
