@@ -34,7 +34,7 @@
         android:text="Học sinh"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="28sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         android:padding="7dp"
         android:transitionName="splash_text"

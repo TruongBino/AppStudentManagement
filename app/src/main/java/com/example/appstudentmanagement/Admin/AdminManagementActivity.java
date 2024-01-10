@@ -49,7 +49,7 @@ protected void onCreate(Bundle savedInstanceState) {
         @Override
         public void onClick(View v) {
             FirebaseAuth.getInstance().signOut();
-            Intent intent = new Intent(AdminManagementActivity.this, LoginStudentActivity.class);
+            Intent intent = new Intent(AdminManagementActivity.this, AdminLoginActivity.class);
             startActivity(intent);
             finish();
         }
