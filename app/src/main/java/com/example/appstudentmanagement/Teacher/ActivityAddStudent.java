@@ -27,7 +27,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 public class ActivityAddStudent extends AppCompatActivity {
-    private ProgressDialog progressDialog;
+    private DatabaseReference databaseRef;
+    private StorageReference storageRef;
     ImageView upLoadStudentImg;
     public Uri imageUri;
     private FirebaseStorage storage;
@@ -37,6 +38,7 @@ public class ActivityAddStudent extends AppCompatActivity {
     private ImageButton fileDetailScore;
     private Button btnAddStudent;
     private static final int PICK_IMAGE_REQUEST = 1;
+    private static final int PICK_FILE_REQUEST = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,12 +53,12 @@ public class ActivityAddStudent extends AppCompatActivity {
         edtSDT = findViewById(R.id.et_phone);
         edtDetail = findViewById(R.id.et_detail);
 
-        fileDetailScore=findViewById(R.id.img_FileDetailScore);
+        fileDetailScore = findViewById(R.id.img_FileDetailScore);
         edtscoreHanhKiem = findViewById(R.id.et_HanhKiem);
         edtscoreDTB = findViewById(R.id.et_ScoreDTB);
         edtscoreHocLuc = findViewById(R.id.et_ScoreHocLuc);
 
-        btnAddStudent=findViewById(R.id.btn_AddStudent);
+        btnAddStudent = findViewById(R.id.btn_AddStudent);
         ImageButton backButton = findViewById(R.id.btn_back);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,8 +66,6 @@ public class ActivityAddStudent extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
-
         storage = FirebaseStorage.getInstance();
         storageReference=storage.getReference();
 

@@ -26,11 +26,7 @@ public class AssignmentAdapter extends BaseAdapter {
         this.context = context;
         this.assignmentList = assignmentList;
     }
-    public void setData(List<Assignment> assignments) {
-        assignmentList.clear();
-        assignmentList.addAll(assignments);
-        notifyDataSetChanged();
-    }
+
     @Override
     public int getCount() {
         return assignmentList.size();
@@ -63,30 +59,25 @@ public class AssignmentAdapter extends BaseAdapter {
         // Lưu đường dẫn file bài tập vào tag của ImageView
         mediaImageView.setTag(assignment.getMediaUrl());
 
-        // Xử lý sự kiện khi người dùng bấm vào ImageView
+// Xử lý sự kiện khi người dùng bấm vào ImageView
         mediaImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String filePath = (String) v.getTag();
+                String mediaUrl = (String) v.getTag();
 
-                if (filePath != null) {
-                    File file = new File(filePath);
-
-                    if (file.exists()) {
-                        // Tạo Intent để mở file
-                        Intent intent = new Intent(Intent.ACTION_VIEW);
-                        Uri uri = Uri.fromFile(file);
-                        intent.setDataAndType(uri, "*/*"); // Thay đổi kiểu file tùy thuộc vào loại file bài tập
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-                        try {
-                            context.startActivity(intent);
-                        } catch (Exception e) {
-                            Toast.makeText(context, "Không thể mở file", Toast.LENGTH_SHORT).show();
-                        }
-                    } else {
-                        Toast.makeText(context, "File không tồn tại", Toast.LENGTH_SHORT).show();
+                if (mediaUrl != null) {
+                    // Tạo Intent để mở file từ đường dẫn URL
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    Uri uri = Uri.parse(mediaUrl);
+                    intent.setDataAndType(uri, "*/*"); // Thay đổi kiểu file tùy thuộc vào loại file bài tập
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    try {
+                        context.startActivity(intent);
+                    } catch (Exception e) {
+                        Toast.makeText(context, "Không thể mở file", Toast.LENGTH_SHORT).show();
                     }
+                } else {
+                    Toast.makeText(context, "Đường dẫn file không hợp lệ", Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.appstudentmanagement.R;
 import com.example.appstudentmanagement.Variable.Assignment;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -24,7 +25,6 @@ public class CreateAssignmentActivity extends AppCompatActivity {
     private EditText contentEditText;
     private ImageButton attachFileButton;
     private Button createAssignmentButton;
-    private ImageButton btnBack;
 
     private DatabaseReference databaseRef;
     private StorageReference storageRef;
@@ -64,13 +64,18 @@ public class CreateAssignmentActivity extends AppCompatActivity {
                     fileRef.putFile(fileUri)
                             .addOnSuccessListener(taskSnapshot -> {
                                 // Lấy đường dẫn đến file phương tiện sau khi tải lên thành công
-                                // Sử dụng đường dẫn URL của file đã lưu trữ trên Firestore
-                                String mediaUrl = fileUri.toString();
-// Lưu trữ thông tin bài tập lên Firebase Realtime Database
-                                Assignment assignment = new Assignment(subject, content, mediaUrl);
-                                String key = databaseRef.push().getKey();
-                                databaseRef.child(key).setValue(assignment);
-                                Toast.makeText(CreateAssignmentActivity.this, "Bài tập đã được tạo và lưu trữ thành công", Toast.LENGTH_SHORT).show();
+                                Task<Uri> downloadUrlTask = taskSnapshot.getStorage().getDownloadUrl();
+                                downloadUrlTask.addOnSuccessListener(uri -> {
+                                    String mediaUrl = uri.toString();
+                                    // Lưu trữ thông tin bài tập lên Firebase Realtime Database
+                                    Assignment assignment = new Assignment(subject, content, mediaUrl);
+                                    String key = databaseRef.push().getKey();
+                                    databaseRef.child(key).setValue(assignment);
+                                    Toast.makeText(CreateAssignmentActivity.this, "Bài tập đã được tạo và lưu trữ thành công", Toast.LENGTH_SHORT).show();
+                                }).addOnFailureListener(e -> {
+                                    // Xử lý khi có lỗi xảy ra khi lấy đường dẫn URL
+                                    Toast.makeText(CreateAssignmentActivity.this, "Lỗi: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                });
                             })
                             .addOnFailureListener(e -> {
                                 // Xử lý khi có lỗi xảy ra trong quá trình tải lên
